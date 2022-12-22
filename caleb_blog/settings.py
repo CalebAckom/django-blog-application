@@ -37,12 +37,12 @@ CORS_ALLOW_CREDENTIALS = True
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.admin',             # Administration site
+    'django.contrib.auth',              # Authentication framework
+    'django.contrib.contenttypes',      # Framework for handling content types
+    'django.contrib.sessions',          # Session framework
+    'django.contrib.messages',          # Messaging framework
+    'django.contrib.staticfiles',       # Framework for managing static files
 ]
 
 MIDDLEWARE = [
