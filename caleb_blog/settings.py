@@ -23,10 +23,10 @@ load_dotenv(dotenv_path=os.path.join(BASE_DIR, '.env'))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '=&m+epn(3ug-4-rtbr63lxl#oclq5x4+zcohld8jmvlrq6xp@u'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = ['*']
 
@@ -37,12 +37,13 @@ CORS_ALLOW_CREDENTIALS = True
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.admin',             # Administration site
+    'django.contrib.auth',              # Authentication framework
+    'django.contrib.contenttypes',      # Framework for handling content types
+    'django.contrib.sessions',          # Session framework
+    'django.contrib.messages',          # Messaging framework
+    'django.contrib.staticfiles',       # Framework for managing static files
+    'blog.apps.BlogConfig',             # Blog application
 ]
 
 MIDDLEWARE = [
@@ -85,11 +86,11 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DBNAME'),
-        'USER': os.getenv('DBUSER'),
-        'PASSWORD': os.getenv('DBPASSWORD'),
-        'HOST': os.getenv('DBHOST'),
-        'PORT': os.getenv('DBPORT'),
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
     }
 }
 
